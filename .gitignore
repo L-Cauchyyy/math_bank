@@ -10,3 +10,5 @@
 *.toc
 *.xdv
 *.pdf
+.vscode/
+.out/
