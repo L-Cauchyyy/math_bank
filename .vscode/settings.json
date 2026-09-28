@@ -1,0 +1,75 @@
+{
+  // ===== 编译工具 =====
+  // 本文档使用 ctex，必须用 xelatex（不能用 pdflatex）
+  // -output-directory=%OUTDIR% 让所有产物写进 out/，%OUTDIR% 由下面的 latex.outDir 推导
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+
+  // ===== 编译方案 =====
+  // xelatex 跑三遍：解决目录 / 交叉引用 / 计数器编号
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex ×2",
+      "tools": ["xelatex", "xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+
+  // ===== 输出位置 =====
+  // 所有产物统一进项目根目录下的 out/
+  "latex-workshop.latex.outDir": "%DIR%/out",
+
+  // ===== 保存时自动编译 =====
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+
+  // ===== 清理辅助文件（只清 out/ 里的，不动源码）=====
+  // 不自动清理：保留 .synctex.gz 才能用 Ctrl+点击 在 PDF 与源码间跳转
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.snm",
+    "*.nav",
+    "*.xdv",
+    "*.synctex.gz",
+    "*.bcf",
+    "*.run.xml"
+  ],
+
+  // ===== PDF 预览 =====
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.zoom": "page-width",
+
+  // ===== 提示信息 =====
+  "latex-workshop.message.badbox.show": "none",
+  "latex-workshop.message.error.show": true
+}

@@ -1,0 +1,37 @@
+\documentclass[mode=chapternotes, palette=emerald, fontsize=11pt, showsolutions=true]{sty/modernclassnotes}
+\usepackage[UTF8]{ctex}
+
+%计数器章重置
+\numberwithin{mcnTheoremCount}{chapter}
+\numberwithin{mcnDefCount}{chapter}
+\numberwithin{mcnExampleCount}{chapter}
+\numberwithin{mcnExerciseCount}{chapter}
+
+%基础信息
+\course{Cauchyyy的数学营地}
+\term{2026.09}
+%\docsubtitle{同步辅导讲义}
+\title{高中数学好题收录}
+\author{Cauchyyy}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% ============================================================
+% 各章内容在 chapters/ 目录下,一章一个文件
+% 只想编译某一章时,可在导言区加 \includeonly{chapters/xxx}
+% ============================================================
+
+\include{chapters/array}
+\include{chapters/inequality}
+\include{chapters/trig}
+\include{chapters/vector}
+\include{chapters/probability}
+\include{chapters/solid}
+\include{chapters/analytic}
+\include{chapters/function}
+
+\end{document}
